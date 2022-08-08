@@ -62,13 +62,18 @@ p {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
-  transition: var(--transition-hover);
+  transition: opacity var(--transition-hover),
+    visibility var(--transition-hover);
+}
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0.1);
 }
 .modal {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform var(--transition-hover);
   width: 528px;
   min-height: 581px;
   background: #ffffff;
@@ -88,9 +93,10 @@ p {
   background-color: transparent;
   border: 1px solid rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  transition: var(--transition-hover);
+  transition: fill var(--transition-hover);
 }
-.backdrop-btn:hover {
+.backdrop-btn:hover,
+.backdrop-btn:focus {
   fill: var(--accent-color);
 }
 .is-hidden {
@@ -123,7 +129,7 @@ p {
   line-height: calc(16 / 14);
   letter-spacing: 0.02em;
   color: var(--second-title-color);
-  transition: var(--transition-hover);
+  transition: color var(--transition-hover);
 }
 .contacts-link,
 .tel-link {
@@ -192,7 +198,7 @@ p {
 .mail-icon,
 .phone-icon {
   margin-right: 10px;
-  transition: var(--transition-hover);
+  transition: fill var(--transition-hover);
 }
 .tel-link {
   background-color: #ffffff;
@@ -200,7 +206,7 @@ p {
   align-items: center;
   justify-content: center;
   fill: #757575;
-  transition: var(--transition-hover);
+  transition: fill var(--transition-hover), color var(--transition-hover);
 }
 /* Секція герой */
 .hero {
@@ -246,11 +252,11 @@ p {
   border-radius: 4px;
   padding: 10px 32px;
   min-width: 200px;
-  transition: var(--transition-hover);
+  transition: background-color var(--transition-hover);
 }
 .hero-btn:hover,
 .hero-btn:focus {
-  background: var(--color-hero-btn);
+  background-color: var(--color-hero-btn);
 }
 /* Секція переваги */
 .benefits {
@@ -405,7 +411,8 @@ p {
   align-items: center;
   justify-content: center;
   fill: #afb1b8;
-  transition: var(--transition-hover);
+  transition: background-color var(--transition-hover),
+    fill var(--transition-hover);
 }
 .team-icon-link:hover,
 .team-icon-link:focus {
@@ -433,7 +440,7 @@ p {
   align-items: center;
   justify-content: center;
   fill: #afb1b8;
-  transition: var(--transition-hover);
+  transition: fill var(--transition-hover), border var(--transition-hover);
 }
 
 .customers-link:hover,
@@ -502,7 +509,8 @@ p {
   align-items: center;
   justify-content: center;
   fill: #ffffff;
-  transition: var(--transition-hover);
+  transition: background-color var(--transition-hover),
+    fill var(--transition-hover);
 }
 .footer-soc-item:hover,
 .footer-soc-item:focus {
@@ -533,7 +541,8 @@ p {
   border: 0;
   cursor: pointer;
   border-radius: 4px;
-  transition: var(--transition-hover);
+  transition: color var(--transition-hover),
+    background-color var(--transition-hover), box-shadow var(--transition-hover);
 }
 .portfolio-btn:hover,
 .portfolio-btn:focus {
@@ -571,6 +580,7 @@ p {
   overflow: hidden;
 }
 .img-discription {
+  display: block;
   position: absolute;
   top: 0.5%;
   left: 0;
@@ -584,18 +594,17 @@ p {
   padding: 63px 24px;
   transform: translateY(100%);
   overflow: auto;
-  transition: var(--transition-hover);
+  transition: transform var(--transition-hover);
 }
-.portfolio-item:hover .img-discription {
+.portfolio-link:hover .img-discription,
+.portfolio-link:focus .img-discription {
   transform: translateY(0);
 }
-
-.portfolio-list .link {
+.portfolio-link {
   display: block;
+  transition: box-shadow var(--transition-hover);
 }
-.portfolio-list .link:hover {
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-.portfolio-list .link:focus {
+.portfolio-list .portfolio-link:hover,
+.portfolio-list .portfolio-link:focus {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
